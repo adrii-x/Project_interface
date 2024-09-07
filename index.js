@@ -78,28 +78,32 @@ let filtered_data = []
 let searchTerm
 let compiler = []
 let finalResult = []
+
 function split_function(title,searchTerm) {
     let splitted = title.toLowerCase().split(searchTerm)
     console.log(title);
     console.log(searchTerm);
-    
-    
     console.log(splitted);
+    
     compiler = []
-    capture = false
+    
+
     
 
 
     
-if (splitted.length>1) {
+if (splitted.length>1 && (searchTerm !== ' ')) {
     
     for (let index = 0; index < splitted.length; index++) {
         
+
         
         if (splitted[index] === '' ) {
             compiler.push(searchTerm)
-            console.log('h0');
             console.log(compiler);
+            
+            console.log('h0');
+            
             
         }
 
@@ -107,9 +111,17 @@ if (splitted.length>1) {
 
             console.log('h2');
             if (splitted[0]!== '') {
-                compiler.push(searchTerm)  
+                compiler.push(searchTerm) 
+                console.log(compiler); 
             }
+
             compiler.push(splitted[index])
+
+            if (splitted[0]=== '') {
+                compiler.push(searchTerm) 
+                
+            }
+            console.log(compiler);
 
         }
 
@@ -118,7 +130,12 @@ if (splitted.length>1) {
             console.log('hi');
         }
 
-        let splitList = compiler
+    }  
+
+    console.log(compiler);
+    
+
+    let splitList = compiler
         let targetString = title
         finalResult = []
         let targetPointer= 0
@@ -137,16 +154,8 @@ if (splitted.length>1) {
 
         }
 
-        // Final Step: Log the final result
-        console.log("Final Result:", finalResult);
+    console.log("Final Result:", finalResult);
 
-    
-
-
-        
-        
-        
-    }  
 }
     
     
@@ -317,11 +326,15 @@ function getProjects(data) {
 
 
 function filterProjects(text) {
-    console.log(js_filteredprojects);
-    
-    filteredprojects = data.filter(box => box.title.toLowerCase().includes(text))
-    console.log(filteredprojects);
-    
+    filteredprojects=[]
+
+    for (let index = 0; index < data.length; index++) {
+        if (data[index].title.toLowerCase().includes(text.toLowerCase())) {
+            filteredprojects.push(data[index])   
+        }  
+    }
+
+
     if (js.classList.contains('active')) {
         console.log('bro');
         console.log(filteredprojects);
@@ -476,10 +489,19 @@ fav.addEventListener('click', (e) =>{
 form.addEventListener('submit',(e) => {
     e.preventDefault()
     searchTerm = search.value.toLowerCase()
+    console.log(searchTerm);
+    
 
     if(searchTerm && searchTerm !== ''){
         filtered_data = filterProjects(search.value)
+        fav_filteredprojects = []
+        py_filteredprojects = []
+        js_filteredprojects = []
+       
         getProjects(filtered_data) 
+        fav_filteredprojects = filtered_data.filter(box => box.rating.includes('Starred'))
+        py_filteredprojects = filtered_data.filter(box => box.language.includes('PY'))
+        js_filteredprojects = filtered_data.filter(box => box.language.includes('JS'))
 
         
     }
