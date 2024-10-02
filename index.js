@@ -22,7 +22,7 @@ const data = [
     { count: 109, title: "Theme clock", language: "JS", rating: "Starred", link: "https://adrii-x.github.io/50_Projects_in_Javascript/19_theme clock/dummy.html" },
     { count: 110, title: "Expanding cards", language: "JS", rating: "None", link: "https://adrii-x.github.io/50_Projects_in_Javascript/1_expanding cards/dummy.html" },
     { count: 111, title: "Roman Numeral Converter", language: "JS", rating: "Starred", link: "https://adrii-x.github.io/roman_numeral_converter" },
-    { count: 112, title: "Chatroom", language: "JS", rating: "Starred", link: "https://adrii-x.github.io/Chat-room" },
+    { count: 112, title: "Chatroom", language: "JS", rating: "Starred", link: " https://adrii-x.github.io/Chat-room/chat_room.html" },
     { count: 113, title: "Button ripple effect", language: "JS", rating: "None", link: "https://adrii-x.github.io/50_Projects_in_Javascript/20_button ripple effect/dummy.html" },
     { count: 114, title: "Drag N Drop", language: "JS", rating: "None", link: "https://adrii-x.github.io/50_Projects_in_Javascript/21_Drag N Drop/dummy.html" },
     { count: 115, title: "Alien-invaders-game", language: "JS", rating: "Starred", link: "https://adrii-x.github.io/Alien-invaders-game" },
